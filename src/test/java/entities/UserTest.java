@@ -17,6 +17,8 @@ class UserTest {
 	Game needForSpeed = new Game("Ned For Speed Underground 2", "O melhor de todos", racing, 15f, 10f);
 	Game zelda = new Game("Zelda Ocarina of Time", "O personagem principal não se chama Zelda!", rpg, 20f, 1f);
 	Game gta = new Game("Grand Theft Auto San Andreas", "CJ ao contrário é JC", survival, 500f, 50f);
+	
+	User user = new User("JuquinhaGamer1997BR", "1234", "joaquimskate15@gmail.com");
 
 	@Test
 	void test() {
