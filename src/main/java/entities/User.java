@@ -3,13 +3,13 @@ package entities;
 import java.util.ArrayList;
 
 public class User {
-	
+
 	private String username;
 	private String password;
 	private String email;
 	private Float wallet;
 	private ArrayList<Game> myGames = null;
-	
+
 	public User(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
@@ -17,29 +17,30 @@ public class User {
 		this.wallet = 0.f;
 		this.myGames = new ArrayList<Game>();
 	}
-	
+
 	// Other Methods
-	
+
 	public boolean buyNewGame(Game game) {
 		if (this.wallet >= game.getPrice()) {
 			this.myGames.add(game);
+			this.wallet -= game.getPrice();
 			return true;
 		}
 		return false;
 	}
-	
+
 	public Float getWalletValue() {
 		return wallet;
 	}
 
 	public boolean sendMoneyToWallet(Float value) {
 		if (value > 0.f) {
-			this.wallet = value;
+			this.wallet += value;
 			return true;
 		}
 		return false;
 	}
-	
+
 	// ./Other Methods
 
 	public String getUsername() {
@@ -66,8 +67,12 @@ public class User {
 		this.email = email;
 	}
 
+	public void setWallet(Float value) {
+		this.wallet = value;
+	}
+
 	public ArrayList<Game> getMyGames() {
 		return myGames;
 	}
-	
+
 }
