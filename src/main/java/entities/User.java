@@ -41,6 +41,32 @@ public class User {
 		return false;
 	}
 
+	public Game getGame(String gameName) {
+		for (int i = 0; i < myGames.size(); i++) {
+			if (myGames.get(i).getName().contentEquals(gameName))
+				return myGames.get(i);
+		}
+		return null;
+	}
+	
+	public Game getGame(int position) {
+		return myGames.get(position);
+	}
+
+	public void listLibrary() {
+		Float total = 0f;
+		for (int i = 0; i < myGames.size(); i++) {
+			System.out.println();
+			System.out.println("Game: " + myGames.get(i).getName());
+			System.out.println("Description: " + myGames.get(i).getDescription());
+			System.out.println("Price: " + myGames.get(i).getPrice());
+			total += myGames.get(i).getPrice();
+			
+		}
+		System.out.println();
+		System.out.println("Total price library: " + total);
+	}
+
 	// ./Other Methods
 
 	public String getUsername() {
